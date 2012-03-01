@@ -1,0 +1,2 @@
+module AutorPicsHelper
+end

@@ -1,0 +1,28 @@
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (29.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (24.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreatePics (20120301223226)
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreatePics (20120301223226)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreatePics (20120301223226)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "pics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "titulo" varchar(255), "nombrearchivo" varchar(255), "tipo" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120301223226')
+Migrating to CreateAutors (20120301223319)
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "autors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "apellido" varchar(255), "cv" text, "robot" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120301223319')
+Migrating to CreateAutorPics (20120301223419)
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "autor_pics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "autor_id" integer, "pic_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("autor_pics")
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_autor_pics_on_pic_id" ON "autor_pics" ("pic_id")[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120301223419')
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("autor_pics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_autor_pics_on_pic_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("autors")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("pics")

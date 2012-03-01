@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Autor:</b>
+  <%= @autor_pic.autor %>
+</p>
+
+<p>
+  <b>Pic:</b>
+  <%= @autor_pic.pic %>
+</p>
+
+
+<%= link_to 'Edit', edit_autor_pic_path(@autor_pic) %> |
+<%= link_to 'Back', autor_pics_path %>

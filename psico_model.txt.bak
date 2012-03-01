@@ -1,0 +1,7 @@
+rails g scaffold pic titulo:string, nombrearchivo:string, tipo:string
+
+rails g scaffold autor nombre:string, apellido:string, cv:text, robot:integer
+
+rails g scaffold autor_pic autor:references, pic:references
+
+
