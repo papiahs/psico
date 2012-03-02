@@ -1,3 +1,7 @@
+
+<%= javascript_include_tag 'tiny_mce/tiny_mce.js' %>
+<%= javascript_include_tag 'tinymce_init' %>
+
 <%= form_for(@autor) do |f| %>
   <% if @autor.errors.any? %>
     <div id="error_explanation">
@@ -19,14 +23,26 @@
     <%= f.label :apellido %><br />
     <%= f.text_field :apellido %>
   </div>
-  <div class="field">
-    <%= f.label :cv %><br />
-    <%= f.text_field :cv %>
+  
+  
+  <div class="field"> 
+		<p><label for="blog_content">Curriculum Vitae</label><br/>
+		<%= f.text_area :cv, :cols => "60", :class=>"mceEditor"%></p>
   </div>
+  
   <div class="field">
     <%= f.label :robot %><br />
-    <%= f.number_field :robot %>
+    <%= f.select :robot, ([["Si","1"],["No","0"]]) %>
   </div>
+  <div class="field">
+  	Elegi una image de la lista<br />
+  <% for p in Pic.contenido.all  %>    
+    <div>    
+      <%= radio_button_tag  "autor[pic_ids][]", p.id, @autor.pics.include?(p) %>    
+      <%= image_tag p.tipo + "/" + p.nombrearchivo ,:size => "60x60" , :alt => p.titulo %>
+    </div>    
+  <% end %>   
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

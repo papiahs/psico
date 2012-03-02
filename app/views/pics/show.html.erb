@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <b>Nombrearchivo:</b>
+  <b>Archivo:</b>
   <%= @pic.nombrearchivo %>
 </p>
 
@@ -15,6 +15,11 @@
   <%= @pic.tipo %>
 </p>
 
+<p>
+	<%= image_tag @pic.tipo + "/" + @pic.nombrearchivo  %>
+</p>
 
+<p><b>Url: </b> <%= image_path @pic.tipo + "/" + @pic.nombrearchivo  %>
+</p>
 <%= link_to 'Edit', edit_pic_path(@pic) %> |
 <%= link_to 'Back', pics_path %>

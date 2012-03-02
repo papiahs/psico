@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<p>
+	<%= image_tag @autor.pics.first.tipo + "/" + @autor.pics.first.nombrearchivo  %>
+</p>
 <p>
   <b>Nombre:</b>
   <%= @autor.nombre %>
@@ -9,16 +11,17 @@
   <b>Apellido:</b>
   <%= @autor.apellido %>
 </p>
-
-<p>
-  <b>Cv:</b>
-  <%= @autor.cv %>
-</p>
-
 <p>
   <b>Robot:</b>
   <%= @autor.robot %>
 </p>
+
+
+<p>
+  <b>Cv:</b>
+  <%= @autor.cv.html_safe %>
+</p>
+
 
 
 <%= link_to 'Edit', edit_autor_path(@autor) %> |

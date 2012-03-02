@@ -1,10 +1,10 @@
 <%= form_for(@pic) do |f| %>
   <% if @pic.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@pic.errors.count, "error") %> prohibited this pic from being saved:</h2>
+      <h2><%= pluralize(@pic.errors.count, "error", "errores") %></h2>
 
       <ul>
-      <% @pic.errors.full_messages.each do |msg| %>
+      <% @pic.errors.each do |attr,msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -16,12 +16,13 @@
     <%= f.text_field :titulo %>
   </div>
   <div class="field">
-    <%= f.label :nombrearchivo %><br />
+    <%= f.label "Archivo:" %><br />
     <%= f.text_field :nombrearchivo %>
   </div>
   <div class="field">
     <%= f.label :tipo %><br />
-    <%= f.text_field :tipo %>
+    <%= f.select :tipo, (["Contenido","WebApp"]) %>
+      
   </div>
   <div class="actions">
     <%= f.submit %>
